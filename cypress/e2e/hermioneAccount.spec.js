@@ -14,7 +14,7 @@ describe('Wizard bank app', () => {
   it('should perform full customer flow for Hermione Granger', () => {
     cy.contains('.btn', 'Customer Login').click();
     cy.get('[name="userSelect"]').select(user);
-    cy.contains('.bt', 'Login').click();
+    cy.contains('.btn', 'Login').click();
 
     cy.get('[ng-hide="noAccount"]').within(() => {
       cy.contains('Account Number').next('strong').then(($accNum) => {
@@ -59,7 +59,7 @@ describe('Wizard bank app', () => {
       .and('contain.text', 'Credit');
 
     cy.get('table tbody tr')
-      .eql(1)
+      .eq(1)
       .should('contain.text', withdrawAmount)
       .and('contain.text', 'Debit');
 
